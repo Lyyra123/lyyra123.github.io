@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Reaction</title>
+
+    <style type="text/css">
+        #shape{
+            width: 150px;
+            height: 150px;
+            background-color: aqua;
+            position: relative;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Your Reaction</h1>
+    <p>Click on the boxes and circles as fast as you can</p>
+    <p>Your time: <span id="timeTaken">0s</span></p>
+    <p>Your score: <span id="score">0</span></p>
+    <div id="shape"></div>
+
+    <script type="text/javascript">
+        var start = new Date().getTime();
+        var score = 0;
+        var gameActive = false;
+
+        function getRandomColor (){
+            var letters = '0123456789ABCDEF'.split('');
+            var color = "#";
+
+            for(var i =0; i < 6; i++){
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function makeShapeAppear (){
+            var top = Math.random() * 200;
+            var left = Math.random() * 200;
+            var width = (Math.random() * 200) + 100;
+
+            if (Math.random() > 0.5){
+                document.getElementById('shape').style.borderRadius = "50%";
+            } else {
+                document.getElementById('shape').style.borderRadius = "0%";
+            }
+
+            document.getElementById('shape').style.backgroundColor = getRandomColor();
+            document.getElementById('shape').style.top = top + "px";
+            document.getElementById('shape').style.left = left + "px";
+            document.getElementById('shape').style.width = width + "px";
+            document.getElementById('shape').style.display = "block";
+
+            start = new Date().getTime();
+            gameActive = true;
+        }
+
+        function appearAfterDelay(){
+            setTimeout(makeShapeAppear, Math.random() * 2000);
+        }
+        appearAfterDelay();
+
+        document.getElementById('shape').onclick = function (){
+            if (!gameActive) return;
+
+            document.getElementById('shape').style.display = "none";
+
+            var end = new Date().getTime();
+            var timeTaken = (end - start) / 1000;
+            var reactionTime = timeTaken.toFixed(2);
+            score++;
+
+            document.getElementById('timeTaken').innerHTML = reactionTime + "s";
+            document.getElementById('score').innerHTML = score;
+
+            appearAfterDelay();
+        }
+    </script>
+</body>
+</html>
