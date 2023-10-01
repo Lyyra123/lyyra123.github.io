@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <h1>Dice Roll</h1>
+
+        <div class="dice-area">
+            <p>Player 1</p>
+            <img id="player1Dice" src="assets/dice1.png" alt="Player 1's dice">
+        </div>
+        
+        <div class="dice-area">
+            <p>Player 2</p>
+            <img id="player2Dice" src="assets/dice2.png" alt="Player 2's dice">
+        </div>
+
+        <!-- Thêm nút Roll màu xanh -->
+        <button id="rollButton" class="green-button">Roll</button>
+        <audio id="diceRollSound" src="audios/audio1.mp3"></audio>
+        <audio id="winSound" src="audios/audio2.mp3"></audio>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
