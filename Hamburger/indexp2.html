@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .reservation-container {
+            background-color: #08b757;
+            width: 50%;
+            height: 200vh;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            text-align: left;
+        }
+
+        .reservation-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 100px;
+            box-shadow: 0px 0px 10px rgba(87, 243, 199, 0.3);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="reservation-container">
+        <div class="reservation-form">
+            <div style="display: flex; justify-content: left; align-items: center; height: 150px; color:rgb(19, 71, 45)">
+                <h1>Lyra's Burgers</h1>
+               </div>
+               <div style="display: flex; justify-content: center; align-items: center">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTejSwF2vhWG2M2TwI4eM4VFaPtJ-AUdLVo1w&usqp=CAU" alt="Hambugers">
+              </div>
+            <hr></hr>
+            
+            <div style="display: flex; justify-content: center; align-items: center; height: 100px; color:rgb(7, 182, 95)">
+               <h1> <u>Create Burger</u></h1>
+              </div>
+            <form action="/submit_reservation" method="post">
+                <label for="name">What type of protein would you like?</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="name">How many patties would you like?</label>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="name">What type of bun would you like?</label>
+                <select id="burger_type" name="burger_type" class="form-input" required>
+                    <option value="classic">Classic Burger</option>
+                    <option value="cheese">Cheese Burger</option>
+                    <option value="veggie">Veggie Burger</option>
+                </select><br>
+
+                <section class="toppings">
+                    <span>What toppings would you like?</span>
+                    <br>
+                    <input id="lettuce" name="topping" type="checkbox" value="lettuce">
+                    <label for="lettuce">Lettuce</label>
+                    <input id="tomato" name="topping" type="checkbox" value="tomato">
+                    <label for="tomato">Tomato</label>
+                    <input type="checkbox" name="topping" id="onion" value="onion">
+                    <label for="onion">Onion</label>
+                    </div>
+                  </section>
+                  <div>
+                    <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                    <p>Would you like to add cheese?</p>
+                         <input type="radio" id="yes" name="check" value="Yes">
+                         <lable for="yes">Yes</lable>
+                          <input type="radio" id="no" name="check" value="No">
+                         <lable for="no">No</lable>
+                    </div>
+                  </div>
+                    </section>
+
+    
+                <section class="cooked">
+                    <div style="display: flex; justify-content: center; align-items: center; height: 150px; color:aliceblue">
+                  <label for="doneness"><u><i>How do you want your patty cooked? </i></u> </label>
+                  ***
+                  <span>Rare</span>
+                  <input type="range" name="doneness" id="doneness" value="3" min="1" max="5">
+                  <span>Well-Done</span>
+                    </div>
+                </section>
+                </form>
+            
+              </section>
+              <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                <textarea id="special_requests" name="special_requests" class="form-textarea" placeholder="Special Requests" rows="4" cols="50"></textarea><br>
+                <hr>
+              </div>
+                <button type="submit" class="form-button">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
